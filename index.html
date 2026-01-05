@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>مكتبتي ++ | رفيقك المعرفي</title>
-<link rel="canonical" href="https://engyusufayman06.github.io/Maktabty/mmat/logo.png"> 
+<link rel="canonical" href="https://engyusufayman06.github.io/Maktabty/"> 
 
     <link rel="icon" type="image/png" href="https://engyusufayman06.github.io/Maktabty/mmat/logo.png"> 
     <link rel="apple-touch-icon" href="https://engyusufayman06.github.io/Maktabty/mmat/logo.png"> 
@@ -20,7 +20,7 @@
     
     <meta property="og:type" content="website">
     
-    <meta property="og:url" content="https://engyusufayman06.github.io/Maktabty/mmat/logo.png"> 
+    <meta property="og:url" content="https://engyusufayman06.github.io/Maktabty/"> 
     
     <meta property="og:image" content="https://engyusufayman06.github.io/Maktabty/mmat/logo.png"> 
     
@@ -42,7 +42,7 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "مكتبتي ++",
-      "url": "https://engyusufayman06.github.io/Maktabty/mmat/logo.png", 
+      "url": "https://engyusufayman06.github.io/Maktabty/", 
       "description": "منصة قراءة رقمية ذكية بتصميم تفاعلي وميزات تتبع القراءة.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "All",
@@ -735,7 +735,7 @@
             </button>
         </div>
 
-        <!-- Badges Section (Enhanced) -->
+        <!-- Badges Section  -->
         <div id="panel-badges" class="shelf-section p-5 border-b border-slate-700/50 bg-slate-900/60">
             <span class="text-sm font-bold text-slate-300 block mb-4 flex items-center gap-2"><i class="fa-solid fa-medal text-yellow-400"></i> لوحة الإنجازات</span>
             <div class="grid grid-cols-4 gap-2 px-1" id="badgesContainer">
@@ -766,7 +766,6 @@
             <p id="shelfStatusText" class="text-xs text-center text-indigo-300 font-medium">مكتبتك ما زالت صغيرة، أضف المزيد!</p>
         </div>
 
-        <!-- تم زيادة الـ padding-bottom هنا (pb-32) لمنع اختفاء الكتب خلف الحواف -->
         <div class="flex-grow overflow-y-auto p-5 pb-32 custom-scrollbar bg-slate-900/30" id="shelfContent"></div>
         <div id="shelfFade" aria-hidden="true"></div>
         <div id="shelfScrollHint" class="text-xs text-slate-400 text-center py-2">مرّر لأسفل لعرض باقي الكتب ⬇️</div>
@@ -1120,7 +1119,6 @@
     </div>
 
     <!-- Footer -->
-    <!-- Developer / About Section (simplified responsive layout) -->
     <section id="developerSection" class="mt-12" aria-labelledby="devHeading">
         <style>
             /* Simplified developer section styles for better responsiveness */
@@ -1256,9 +1254,7 @@
             
             { id: 'b_explorer', icon: 'fa-compass', title: 'مستكشف', desc: 'بحث 5 مرات', type: 'search', target: 5 }, // Needs custom tracking logic or simplify
         ];
-        
-        // --- NEW: Rawiya Logic using FREE API (Pollinations) ---
-        // لا يوجد API Key هنا، الخدمة مجانية تماماً
+     
 
         function toggleRawiyaChat() {
             const widget = document.getElementById('rawiyaWidget');
@@ -1308,8 +1304,6 @@
                         - اللهجة: تحدثي بلغة عربية فصحى مبسطة وودودة، واستخدمي الإيموجي المناسب للكتب 📚✨.
                         `;
 
-                        // تجهيز الرسالة الكاملة للـ API المجاني
-                        // نقوم بدمج السياق مع رسالة المستخدم لأن هذا الـ API بسيط ولا يحفظ الجلسة
                         const fullPrompt = `${context}\n\nالمستخدم: ${userMsg}\nراوية:`;
 
             try {
@@ -1863,7 +1857,6 @@
             showToast('ما رأيك بهذا الكتاب؟', 'success');
         }
 
-        // --- UPDATED: Shelf UI & Badges Rendering ---
         function updateShelfUI() {
             const container = document.getElementById('shelfContent');
             const countBadge = document.getElementById('shelfCount');
@@ -1881,7 +1874,6 @@
             else if(count < 5) statusText.innerText = "بداية موفقة، استمر!";
             else statusText.innerText = `لديك ${count} كتاباً، مكتبة رائعة!`;
 
-            // Render Badges (include data-badge-id for targetable animation and visible title)
             badgesContainer.innerHTML = badgesData.map(badge => {
                 const isUnlocked = unlockedBadges.includes(badge.id);
                 return `
@@ -1950,7 +1942,6 @@
             }).join('');
         }
 
-        // --- NEW: Check Achievements Logic ---
         function checkAchievements() {
             const addCount = myLibrary.length;
             const readCount = myLibrary.filter(b => b.readingStatus === 'finished').length;
@@ -2033,7 +2024,6 @@
             document.getElementById('statsModal').classList.add('hidden');
         }
 
-        // --- NEW: Reading Timer Logic ---
         let timerInterval;
         let seconds = 0;
         let isRunning = false;
@@ -2069,7 +2059,6 @@
             }
         }
 
-        // --- ENHANCED: Share Logic with Metadata ---
         function shareMyLibrary() {
             const userName = localStorage.getItem('libraryUserName') || 'صديق';
             
@@ -2081,7 +2070,6 @@
             const btn = document.getElementById('shareLibBtn');
             btn.disabled = true;
 
-            // Encode Status and Progress
             // Format: id|status|progress
             const bookData = myLibrary.map(b => {
                 const status = b.readingStatus || 'unread';
@@ -2363,7 +2351,6 @@
             }
         }
 
-        // --- Share Logic (Updated for Copy Link) ---
         async function shareBook() {
             const info = activeBookMoreInfo;
             if(!info || !info.title) return;
